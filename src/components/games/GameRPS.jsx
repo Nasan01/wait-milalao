@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import rock from '../../images/rock.png';
+import paper from '../../images/paper.png';
+import scissors from '../../images/scissors.png';
 
 const TAB = [
-    { linkImg: '', name: "ROCK" },
-    { linkImg: '', name: "PAPER" },
-    { linkImg: '', name: "SCISSOR" },
+    { linkImg: rock, name: "ROCK" },
+    { linkImg: paper, name: "PAPER" },
+    { linkImg: scissors, name: "SCISSOR" },
 ];
 
 const Winner = ({ winner }) => {
@@ -22,7 +25,7 @@ const Choice = ({ choice }) => {
     return (
         <div className='w-32 h-32 bg-stone-600'>
             <h2 className='text-3xl'>
-                {choice ? choice.name : "wait..."}               
+                {choice ? <img src={choice.linkImg} className="h-32 w-32" alt={choice.name} /> : "wait..."}               
             </h2>
         </div>
     )
@@ -86,11 +89,12 @@ const Gamerps = () => {
                     return (
                         <div
                             id={index}
-                            className='bg-slate-400 h-12 cursor-pointer'
+                            className='h-28 w-28 overflow-hidden rounded-full cursor-pointer'
                             key={index}
                             onClick={handleClick}
+                            style={{backgroundImage:`url(${c.linkImg})`, backgroundSize:"cover"}}
                         >
-                            {c.name}
+                            
                         </div>
                     )
                 })}

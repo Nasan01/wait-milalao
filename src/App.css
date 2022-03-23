@@ -24,6 +24,11 @@
   color: white;
 }
 
+.bg-bannierre {
+  background-image: url('./images/b3.jpg');
+  background-size: cover;
+}
+
 .App-link {
   color: #61dafb;
 }
